@@ -1,4 +1,4 @@
-#include <plugify/cpp_plugin.hpp>
+#include <plg/plugin.hpp>
 #include <plugin_export.h>
 #include <dynohook/imanager.h>
 

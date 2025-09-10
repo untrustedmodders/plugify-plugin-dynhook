@@ -17,17 +17,17 @@ list(GET DYNHOOK_VERSION_LIST 0 DYNHOOK_VERSION_MAJOR)
 list(GET DYNHOOK_VERSION_LIST 1 DYNHOOK_VERSION_MINOR)
 list(GET DYNHOOK_VERSION_LIST 2 DYNHOOK_VERSION_PATCH)
 
-project(dynh 
+project(plugify-plugin-dynhook
         VERSION "${DYNHOOK_VERSION_MAJOR}.${DYNHOOK_VERSION_MINOR}.${DYNHOOK_VERSION_PATCH}"
-        DESCRIPTION "DynHook Plugin" 
-        HOMEPAGE_URL "https://github.com/untrustedmodders/dynhook" 
+        DESCRIPTION "DynHook Plugin"
+        HOMEPAGE_URL "https://github.com/untrustedmodders/plugify-plugin-dynhook"
         LANGUAGES CXX
 )
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+#set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 if(NOT CMAKE_BUILD_TYPE MATCHES "Debug|Devel|MinSizeRel|RelWithDebInfo|Release")
     message(STATUS "CMAKE_BUILD_TYPE not set, defaulting to Debug.")
@@ -37,11 +37,6 @@ endif()
 if(UNIX AND NOT APPLE)
     set(LINUX TRUE)
 endif()
-
-#
-# Format
-#
-include(CompatFormat)
 
 #
 # Dynohook
@@ -54,7 +49,8 @@ add_subdirectory(external/dynohook)
 file(GLOB_RECURSE PLUGIN_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
 add_library(${PROJECT_NAME} SHARED ${PLUGIN_SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} external/dynohook/include)
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/external/dynohook/include")
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/external/plugify/include")
 
 target_link_libraries(${PROJECT_NAME} PRIVATE dynohook)
 
@@ -68,8 +64,6 @@ include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME} EXPORT_MACRO_NAME PLUGIN_API EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/exports/plugin_export.h)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/exports)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dynhook")
-
 if(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,-exported_symbols_list,${CMAKE_CURRENT_SOURCE_DIR}/sym/exported_symbols.lds")
 elseif(UNIX)
@@ -77,17 +71,19 @@ elseif(UNIX)
 endif()
 
 if(LINUX)
+    #target_compile_definitions(${PROJECT_NAME} PRIVATE _GLIBCXX_USE_CXX11_ABI=1)
     target_link_libraries(${PROJECT_NAME} PRIVATE -static-libstdc++ -static-libgcc)
 endif()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
         PLUGIFY_FORMAT_SUPPORT=$<BOOL:${COMPILER_SUPPORTS_FORMAT}> 
-        PLUGIFY_IS_DEBUG=$<STREQUAL:${CMAKE_BUILD_TYPE},Debug>)
+        PLUGIFY_IS_DEBUG=$<STREQUAL:${CMAKE_BUILD_TYPE},Debug>
+)
 if(NOT COMPILER_SUPPORTS_FORMAT)
-    target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt-header-only)
+    #target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt-header-only)
 endif()
 
 configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/dynhook.pplugin.in
-    ${CMAKE_CURRENT_BINARY_DIR}/dynhook.pplugin
+    ${CMAKE_CURRENT_SOURCE_DIR}/plugify-plugin-dynhook.pplugin.in
+    ${CMAKE_CURRENT_BINARY_DIR}/plugify-plugin-dynhook.pplugin
 )

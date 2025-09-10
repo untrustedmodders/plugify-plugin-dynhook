@@ -1,21 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/untrustedmodders/plugify/refs/heads/main/schemas/plugin.schema.json",
-  "fileVersion": 1,
   "version": "${DYNHOOK_VERSION}",
-  "friendlyName": "DynHook API",
+  "name": "${DYNHOOK_PACKAGE}",
   "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
-  "createdBy": "qubka",
-  "createdByURL": "https://github.com/qubka/",
-  "docsURL": "https://github.com/qubka/DynoHook",
-  "downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v${DYNHOOK_VERSION}/${DYNHOOK_PACKAGE}.zip",
-  "updateURL": "https://untrustedmodders.github.io/dynohook/dynohook.json",
-  "entryPoint": "bin/dynhook",
-  "supportedPlatforms": [],
-  "languageModule": {
-    "name": "cpp"
-  },
+  "author": "qubka",
+  "website": "https://github.com/qubka/",
+  "licence": "MIT",
+  "entry": "bin/plugify-plugin-dynhook",
+  "platforms": [],
+  "language": "cpp",
   "dependencies": [],
-  "exportedMethods": [
+  "methods": [
     {
       "name": "GetManager",
       "funcName": "GetManager",
