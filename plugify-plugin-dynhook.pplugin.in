@@ -5,7 +5,7 @@
   "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
   "author": "qubka",
   "website": "https://github.com/qubka/",
-  "licence": "MIT",
+  "license": "MIT",
   "entry": "bin/plugify-plugin-dynhook",
   "platforms": [],
   "language": "cpp",
