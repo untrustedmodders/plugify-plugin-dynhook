@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v1.0.6...v2.0.0) (2025-09-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* update for a new plugify
+
+### Features
+
+* update for a new plugify ([f23fbbf](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/f23fbbf0e6cd216c35d63aa1de99a091b113bc1a))
+
+
+### Bug Fixes
+
+* add conda recipe ([8fb79a8](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/8fb79a8bcf78e2a9c9e680cd34770e7669ceed40))
+* build script ([91d47c5](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/91d47c5b8a6a635147ece0dea357e07326a65549))
+* replace static by reinterpret cast ([4a89fd7](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/4a89fd7f29bb954a1c69f9074a7661155523a6e2))
+* update clang format ([df6c005](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/df6c005596e325464eba496c2821db9ce79c80db))
+
 ## [1.0.6](https://github.com/untrustedmodders/dynhook/compare/v1.0.5...v1.0.6) (2025-08-01)
 
 
