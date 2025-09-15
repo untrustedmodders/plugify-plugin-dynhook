@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v2.0.0...v2.0.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* enable fPIC ([1ee57bf](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/1ee57bfc1ef2691dda9d7a45c06b3061202b521a))
+
 ## [2.0.0](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v1.0.6...v2.0.0) (2025-09-14)
 
 
