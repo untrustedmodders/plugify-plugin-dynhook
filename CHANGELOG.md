@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v2.0.1...v2.0.2) (2025-09-27)
+
+
+### Bug Fixes
+
+* update plugify ([e957505](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/e9575053b7ece8f0e8bd76500b7a09a010050271))
+
 ## [2.0.1](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v2.0.0...v2.0.1) (2025-09-15)
 
 
