@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v2.0.2...v2.0.3) (2025-10-03)
+
+
+### Bug Fixes
+
+* improve san and debug symbols on windows ([5eae426](https://github.com/untrustedmodders/plugify-plugin-dynhook/commit/5eae426f8c0af275f0ab3d1c5fa67d3dc889a514))
+
 ## [2.0.2](https://github.com/untrustedmodders/plugify-plugin-dynhook/compare/v2.0.1...v2.0.2) (2025-09-27)
 
 
